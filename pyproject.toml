@@ -1,0 +1,31 @@
+[build-system]
+requires = [
+  "setuptools>=61",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dpapi-blob"
+version = "0.1.0"
+description = "Decrypt Windows DPAPI blobs using a provided masterkey (wrapper around impacket.dpapi.DPAPI_BLOB)."
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+  { name = "luckystars0612" },
+]
+dependencies = [
+  "impacket>=0.11.0",
+]
+keywords = ["DPAPI", "Windows", "forensics", "security", "impacket"]
+
+[project.urls]
+Homepage = "https://github.com/luckystars0612/dpapi-blob"
+Source = "https://github.com/luckystars0612/dpapi-blob"
+
+[project.scripts]
+# This will create a CLI named `dpapi-blob` that calls decrypt.main
+dpapi-blob = "decrypt:main"
+
+[tool.setuptools]
+# We ship a single module file `decrypt.py`
+py-modules = ["decrypt"]
